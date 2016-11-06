@@ -4,7 +4,6 @@ import br.com.brunotonia.soap.CarroServidor;
 import br.com.brunotonia.soap.util.JTableUtil;
 import br.com.brunotonia.soap.vo.Carro;
 import java.net.URL;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.namespace.QName;
@@ -161,8 +160,8 @@ public class Principal extends javax.swing.JFrame {
             URL url = null;
             try {
                 url = new URL("http://127.0.0.1:9876/carro?wsdl");
-            } catch (Exception e) {
-
+            } catch (Exception ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             }
             QName qname = new QName("http://soap.brunotonia.com.br/", "CarroServidorImplService");
             Service ws = Service.create(url, qname);
